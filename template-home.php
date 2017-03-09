@@ -41,7 +41,7 @@ get_header(); ?>
       <h3 class="purple-clr">Contact CarePanda and Schedule a Demo</h3>
     </div>
     <div id="contact-form" class="contact-form col-xs-12">
-      <?php echo do_shortcode('[contact-form-7 id="18" title="Contact Form"]'); ?>
+      <?php echo do_shortcode('[contact-form-7 id="11" title="Contact Form"]'); ?>
     </div><!-- end of <div class="col-xs-12"> -->
   </div><!-- end of <div class="container"> -->
 </section><!-- end of <section id="contact" class="section-certification section-small-body clearfix"> -->

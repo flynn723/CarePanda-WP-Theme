@@ -92,6 +92,9 @@ a:focus {
   .sm-padding-right-0 {
     padding-right: 0;
   }
+  .sm-text-left {
+    text-align: left;
+  }
 }
 /* elements */
 /* elements > header */
@@ -587,7 +590,13 @@ a.header-free-trial-btn:focus {
   cursor: pointer;
 }
 .modal-header {
+  background: #9a65a5;
+  color: #fff;
     border-bottom: none;
+}
+.modal .close {
+  color: #fff;
+  opacity: 1;
 }
 /* elements > media breakpoints */
 @media (max-width: 767px) {

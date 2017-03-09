@@ -1,6 +1,6 @@
 <footer id="footer-first-row" class="footer-first-row">
   <div class="footer-container container">
-    <div class="col-xs-12 col-sm-3"><?php echo date('Y'); ?> &copy; CarePanda<small>&trade;</small></div>
+    <div class="col-xs-12 col-sm-3 xs-text-center sm-text-left"><?php echo date('Y'); ?> &copy; CarePanda<small>&trade;</small></div>
     <div class="hidden-xs col-sm-9">
 
       <ul id="footer-menu" class="footer-menu-row row">

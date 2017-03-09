@@ -6,10 +6,10 @@
         <h3 class="package-title">Compliance Package</h3>
         <div class="package-amount-wrapper clearfix">
           <div class="package-amount-col col-xs-6">
-            <h4>Monthly<hr style="margin-top: 10px;border-top: none;margin-bottom: 0;"/>$199<hr style="margin-top: 10px;border-top: none;margin-bottom: 0;"/>+<hr style="margin-top: 10px;border-top: none;margin-bottom: 0;"/>$8<small>/user</small></h4>
+            <h4>Monthly<hr style="margin-top: 10px;border-top: none;margin-bottom: 0;"/>$199<!-- <hr style="margin-top: 10px;border-top: none;margin-bottom: 0;"/>+ --><hr style="margin-top: 10px;border-top: none;margin-bottom: 0;"/>$8<small>/user</small></h4>
           </div>
           <div class="package-amount-col col-xs-6">
-            <h4>Annually<hr style="margin-top: 10px;border-top: none;margin-bottom: 0;"/><small><strike>$199</strike></small> $179<hr style="margin-top: 10px;border-top: none;margin-bottom: 0;"/>+<hr style="margin-top: 10px;border-top: none;margin-bottom: 0;"/><small><strike>$8</strike></small> $6<small>/user</small></h4>
+            <h4>Annually<hr style="margin-top: 10px;border-top: none;margin-bottom: 0;"/><small><strike>$199</strike></small> $179<!-- <hr style="margin-top: 10px;border-top: none;margin-bottom: 0;"/>+ --><hr style="margin-top: 10px;border-top: none;margin-bottom: 0;"/><small><strike>$8</strike></small> $6<small>/user</small></h4>
           </div>
         </div>
         <ul class="package-selling-point">

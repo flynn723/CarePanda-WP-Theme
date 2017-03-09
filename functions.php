@@ -117,6 +117,8 @@ function carepanda_scripts() {
 
 	wp_enqueue_script( 'jquery', '//code.jquery.com/jquery-2.1.4.min.js?ver=4.4', array(), '1.0' );
 
+	wp_enqueue_script( 'jquery-validation', '//cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js', array(), '1.0' );
+
 	wp_enqueue_script( 'bootstrap-js', '//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js?ver=4.4', array(), '1.0' );
 
 	wp_enqueue_script( 'carepanda-script', get_template_directory_uri() . '/js/footer-script.js', array(), '1.0', true );
