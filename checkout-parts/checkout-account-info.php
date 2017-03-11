@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $planType = trim(filter_input(INPUT_POST,"planType",FILTER_SANITIZE_SPECIAL_CHARS));
     $agreeTermsConditions = trim(filter_input(INPUT_POST,"agree_terms_conditions",FILTER_SANITIZE_SPECIAL_CHARS));
     
-    if ($contactFirstName == "" || $contactLastName == "" || $phone == "" || $email == "" || $streetAddress == "" || $city == "" || $selectedState == "" || $zipCode == "" || $userQuantity == "" || $planType == "" || $agreeTermsConditions == "") {
+    if ($organizationName == "" || $contactFirstName == "" || $contactLastName == "" || $phone == "" || $email == "" || $streetAddress == "" || $city == "" || $selectedState == "" || $zipCode == "" || $userQuantity == "" || $planType == "" || $agreeTermsConditions == "") {
         $error_message = "<li>* Pleaes fill in required fields.</li>";
     }
 }
@@ -145,7 +145,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         </form><!-- end of <form id="account-info" -->
 
  <?php
-if ( isset($_POST["submit_account_info_form"]) && $contactFirstName != "" && $contactLastName != "" && $phone != "" && $email != "" && $streetAddress != "" && $city != "" && $selectedState != "" || $zipCode != "" && $userQuantity != "" && $planType != "" && $agreeTermsConditions != "") {
+if ( isset($_POST["submit_account_info_form"]) && $_POST['organization_name'] != "" && $_POST['contact_first_name'] != "" && $_POST['contact_last_name'] != "" && $_POST['phone'] != "" && $_POST['email'] != "" && $_POST['street_address'] != "" && $_POST['city'] != "" && $_POST['state'] != "" || $_POST['zipcode'] != "" && $_POST['user_quantity'] != "" && $_POST['planType'] != "" && $_POST['agree_terms_conditions'] != "") {
     
     $organizationName = strip_tags($_POST['organization_name'], "");
     $contactFirstName = strip_tags($_POST['contact_first_name'], "");

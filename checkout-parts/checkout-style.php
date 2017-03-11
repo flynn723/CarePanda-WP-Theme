@@ -11,12 +11,6 @@
 .section-page {
   background: #f6f6f6;
 }
-@media (min-width: 768px){
-  .section-page {
-    background: url('<?php echo $featImgURL; ?>');
-    background-size: cover;
-  }  
-}
 /* Hide unnecessary elements to create a better traffic funnel */
 .header-top-row,
 .header-row,

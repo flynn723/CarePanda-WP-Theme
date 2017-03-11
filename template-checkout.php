@@ -42,6 +42,8 @@ get_template_part('checkout-parts/checkout-style'); ?>
 
                     <?php get_template_part('checkout-parts/checkout', 'account-info'); ?>
 
+                    <?php get_template_part('checkout-parts/checkout', 'zoho'); ?>
+
                   </div>
                 </div>
               </div><!-- end of <div class="panel -->
