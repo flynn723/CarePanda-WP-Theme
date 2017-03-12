@@ -2,31 +2,35 @@
 $states = array("AL", "AK", "AS", "AZ", "AR","CA", "CO", "CT", "DE", "DC", "FL", "GA", "GU", "HI", "ID", "IL", "IN", "IA", "KS", "KY", "LA", "ME", "MD", "MH", "MA", "MI", "FM", "MN", "MS", "MO", "MT", "NE", "NV", "NH", "NJ", "NM", "NY", "NC", "ND", "MP", "OH", "OK", "OR", "PW", "PA", "PR", "RI", "SC", "SD", "TN", "TX", "UT", "VT", "VA", "VI", "WA", "WV", "WI", "WY");
 
 // global $wpdb;
-// // creates table checkout_info in database if not exists
-// $table = $wpdb->prefix . "checkout_info"; 
-// $charset_collate = $wpdb->get_charset_collate();
-// $sql = "CREATE TABLE $table (
-//       id mediumint(9) NOT NULL AUTO_INCREMENT,
-//       time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
-//       organizationName tinytext NOT NULL,
-//       contactFirstName tinytext NOT NULL,
-//       contactLastName tinytext NOT NULL,
-//       phone tinytext NOT NULL,
-//       email tinytext NOT NULL,
-//       streetAddress tinytext NOT NULL,
-//       zipCode tinytext NOT NULL,
-//       userQuantity tinytext NOT NULL,
-//       planType tinytext NOT NULL,
-//       agreeTermsConditions tinytext NOT NULL,
-//       extraColumn1 tinytext NOT NULL,
-//       extraColumn2 tinytext NOT NULL,
-//       extraColumn3 tinytext NOT NULL,
-//       extraColumn4 tinytext NOT NULL,
-//       url varchar(55) DEFAULT '' NOT NULL,
-//       PRIMARY KEY  (id)
-//     ) $charset_collate;";
-// require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-// dbDelta( $sql );
+// creates table checkout_info in database if not exists
+/*
+$table = $wpdb->prefix . "checkout_info"; 
+$charset_collate = $wpdb->get_charset_collate();
+$sql = "CREATE TABLE $table (
+      id mediumint(9) NOT NULL AUTO_INCREMENT,
+      time datetime DEFAULT '0000-00-00 00:00:00' NOT NULL,
+      organizationName tinytext NOT NULL,
+      contactFirstName tinytext NOT NULL,
+      contactLastName tinytext NOT NULL,
+      phone tinytext NOT NULL,
+      email tinytext NOT NULL,
+      streetAddress tinytext NOT NULL,
+      city tinytext NOT NULL,
+      state tinytext NOT NULL,
+      zipCode tinytext NOT NULL,
+      userQuantity tinytext NOT NULL,
+      planType tinytext NOT NULL,
+      agreeTermsConditions tinytext NOT NULL,
+      extraColumn1 tinytext NOT NULL,
+      extraColumn2 tinytext NOT NULL,
+      extraColumn3 tinytext NOT NULL,
+      extraColumn4 tinytext NOT NULL,
+      url varchar(55) DEFAULT '' NOT NULL,
+      PRIMARY KEY  (id)
+    ) $charset_collate;";
+require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+dbDelta( $sql );
+*/
 
 // $_POST Read Post Variable
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -184,6 +188,8 @@ if ( isset($_POST["submit_account_info_form"]) && $_POST['organization_name'] !=
             'phone' => $phone,
             'email' => $email,
             'streetAddress' => $streetAddress,
+            'city' => $city,
+            'state' => $selectedState,
             'zipCode' => $zipCode,
             'userQuantity' => $userQuantity,
             'planType' => $planType,
@@ -231,7 +237,7 @@ jQuery(document).ready(function($){
     if (userQuantity >= 2 && planType != null){
 
       // Apply new amount to Payment Form
-      $('#stripe-payment-form input[name="amount"]').val(btoa(amount));
+      //$('#stripe-payment-form input[name="amount"]').val(btoa(amount));
 
       // Apply new amount to Order Summary
       $('#order-summary-accordion .order-sum-account-fee').html('+ $' + accountFee); 
@@ -244,8 +250,10 @@ jQuery(document).ready(function($){
       }
       // Calc Order Summary
       $('#order-summary-accordion .order-sum-user-quantity').html(userQuantity);      
-      $('#order-summary-accordion .order-sum-user-fee').html('* $' + userFee); 
-      $('#order-summary-accordion .order-sum-account-fee').html('+ $' + accountFee);
+      $('#order-summary-accordion .user-fee-title').html('User Fee ($' + userFee +')'); 
+      $('#order-summary-accordion .order-sum-user-fee').html('$' + (userFee*userQuantity)); 
+      $('#order-summary-accordion .account-fee-title').html('Account Fee ($' + accountFee+')');
+      $('#order-summary-accordion .order-sum-account-fee').html('+ $' + (accountFee * billingInstances));
       // Show Order Summary
       $('#order-summary-accordion .order-sum-user-quantity-wrapper, #order-summary-accordion .order-sum-user-fee-wrapper, #order-summary-accordion .order-sum-account-fee-wrapper, #order-summary-accordion .order-sum-total-wrapper').slideDown();
     } else {

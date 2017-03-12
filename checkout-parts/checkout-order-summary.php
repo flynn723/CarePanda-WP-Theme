@@ -18,10 +18,10 @@
 			  		<div class="col-xs-7">User Quantity</div><div class="col-xs-5 text-right"><p class="order-sum-user-quantity">User Quantity Not Set</p></div>
 			  	</div>
 		  		<div class="order-sum-user-fee-wrapper">
-			  		<div class="col-xs-7">User Fee</div><div class="col-xs-5 text-right"><p class="order-sum-user-fee"></p></div>
+			  		<div class="user-fee-title col-xs-7">User Fee</div><div class="col-xs-5 text-right"><p class="order-sum-user-fee"></p></div>
 			  	</div>
 		  		<div class="order-sum-account-fee-wrapper">
-			  		<div class="col-xs-7">Account Fee</div><div class="col-xs-5 text-right"><p class="order-sum-account-fee">Package Plan Not Selected</p></div>
+			  		<div class="account-fee-title col-xs-7">Account Fee</div><div class="col-xs-5 text-right"><p class="order-sum-account-fee">Package Plan Not Selected</p></div>
 			  	</div>
 		  		<div class="order-sum-total-wrapper">
 			  		<div class="order-sum-total-col col-xs-7">Total</div><div class="col-xs-5 text-right"><p class="order-sum-total">Not Set</p></div>
