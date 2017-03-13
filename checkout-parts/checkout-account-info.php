@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
           <div class="col-xs-12 col-sm-6 form-col">
             <label class="form-label">Email</label>
-            <input class="form-control" name="email" type="email" placeholder="Email" value="<?php if(isset($email)){ echo $email; } ?>" maxlength="30" required/>
+            <input class="form-control" name="email" type="email" placeholder="Email" value="<?php if(isset($email)){ echo $email; } ?>" maxlength="40" required/>
           </div>
           <div class="clearfix"></div>
 
@@ -103,7 +103,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <select class="form-control" name="state" required>
               <?php
               if (!isset($selectedState)){
-                echo '<option disabled selected>State</option>';
+                echo '<option disabled>State</option>';
               }
               foreach($states as $state){ 
                 if (isset($selectedState) && $selectedState == $state){
@@ -148,8 +148,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </div>
         </form><!-- end of <form id="account-info" -->
 
- <?php
-if ( isset($_POST["submit_account_info_form"]) && $_POST['organization_name'] != "" && $_POST['contact_first_name'] != "" && $_POST['contact_last_name'] != "" && $_POST['phone'] != "" && $_POST['email'] != "" && $_POST['street_address'] != "" && $_POST['city'] != "" && $_POST['state'] != "" || $_POST['zipcode'] != "" && $_POST['user_quantity'] != "" && $_POST['planType'] != "" && $_POST['agree_terms_conditions'] != "") {
+ <?php if ( isset($_POST["submit_account_info_form"]) && $_POST['organization_name'] != "" && $_POST['contact_first_name'] != "" && $_POST['contact_last_name'] != "" && $_POST['phone'] != "" && $_POST['email'] != "" && $_POST['street_address'] != "" && $_POST['city'] != "" && $_POST['state'] != "" || $_POST['zipcode'] != "" && $_POST['user_quantity'] != "" && $_POST['planType'] != "" && $_POST['agree_terms_conditions'] != "") {
     
     $organizationName = strip_tags($_POST['organization_name'], "");
     $contactFirstName = strip_tags($_POST['contact_first_name'], "");
@@ -199,9 +198,7 @@ if ( isset($_POST["submit_account_info_form"]) && $_POST['organization_name'] !=
     // $myrows = $wpdb->get_results( "SELECT * FROM carewp_checkout_info" );
     // echo '<pre>';
     // var_dump($myrows);
-    // echo '</pre>';
-}
-?>
+    // echo '</pre>'; ?>
 <script type="text/javascript">
 jQuery(document).ready(function($){
 
@@ -209,6 +206,20 @@ jQuery(document).ready(function($){
     var email = $('#account-info input[name="email"]').val();
     $('#stripe-payment-form .email').val(email);
   }
+
+  /* Update Email on Load */
+  updateEmail();
+
+  $('#account-info .checkout-btn').addClass('data-sent').html('<i class="fa fa-check"></i> Form Submitted').prop('disabled', true);
+  /* Prevent #account-info changes since data has been sbumitted */
+  $('#account-info input, #account-info select').attr('readonly', 'readonly');
+  $('#account-info input[type="radio"], #account-info input[type="checkbox"]').attr('onclick','return false;').css('cursor', 'default');
+  $('.checkout-wrapper .form-radio-btn-wrapper label, label[for="agree-terms-conditions"]').css('cursor', 'default');
+});
+</script>
+<?php } /* end of if ( isset($_POST["submit_account_info_form"]) && $_POST['organization_name'] != "" */?>
+<script type="text/javascript">
+jQuery(document).ready(function($){
 
   function updateAmount(){
     // Get Plan Type
@@ -236,9 +247,6 @@ jQuery(document).ready(function($){
     // Output Order Summary
     if (userQuantity >= 2 && planType != null){
 
-      // Apply new amount to Payment Form
-      //$('#stripe-payment-form input[name="amount"]').val(btoa(amount));
-
       // Apply new amount to Order Summary
       $('#order-summary-accordion .order-sum-account-fee').html('+ $' + accountFee); 
 
@@ -258,9 +266,7 @@ jQuery(document).ready(function($){
       $('#order-summary-accordion .order-sum-user-quantity-wrapper, #order-summary-accordion .order-sum-user-fee-wrapper, #order-summary-accordion .order-sum-account-fee-wrapper, #order-summary-accordion .order-sum-total-wrapper').slideDown();
     } else {
       // Hide Order Summary
-      $('#order-summary-accordion .order-sum-user-quantity-wrapper, #order-summary-accordion .order-sum-user-fee-wrapper').slideUp();
-      $('#order-summary-accordion .order-sum-account-fee-wrapper').slideUp();
-      $('#order-summary-accordion .order-sum-total-wrapper').slideUp();      
+      $('#order-summary-accordion .order-sum-user-quantity-wrapper, #order-summary-accordion .order-sum-user-fee-wrapper, #order-summary-accordion .order-sum-account-fee-wrapper, #order-summary-accordion .order-sum-total-wrapper').slideUp();     
     }
     // Order Summary Discount
     // if Annual Price selected
@@ -285,17 +291,8 @@ jQuery(document).ready(function($){
   }
 
   /* Update Order Summary and Payment Form Amount on Load and Change */
-  jQuery(document).ready(function($){
-    updateEmail();
-    updateAmount();
-  });
-  $('#account-info input[name="email"]').on('change', function(){
-    updateEmail();
-  });
-  $('#account-info input[name="user_quantity"]').on('change', function(){
-    updateAmount();
-  });
-  $('#account-info input[name="planType"]').on('change', function(){
+  updateAmount();
+  $('#account-info input[name="user_quantity"], #account-info input[name="planType"]').on('change', function(){
     updateAmount();
   });
   $('#account-info .show-terms-conditions-modal').on('click', function(){

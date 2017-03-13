@@ -65,36 +65,7 @@
 .checkout-wrapper .form-radio-btn-wrapper {
     margin: 10px 0;
 }
-/*.checkout-wrapper .form-radio-btn-wrapper {
-    position: relative;
-    margin: 0 0 15px;
-}
-.checkout-wrapper .form-radio-btn-wrapper::before {
-    display: block;
-    margin: 0;
-    position: absolute;
-    top: -5px;
-    left: 0;
-    content: "\2713";
-    color: rgba(0,0,0,0.25);
-    font-size: 50px;
-    width: 35px;
-    height: 35px;
-    background-color: #7a895d;
-    border-radius: 3px;
-    line-height: 35px;
-    font-weight: bold;
-    cursor: pointer;
-}
-.checkout-wrapper .form-radio-btn-wrapper.checked::before {
-    color: #fff;
-}
-.checkout-wrapper .form-radio-btn-wrapper input[type="radio"] {
-     display: none; 
-}*/
 .checkout-wrapper .form-radio-btn-wrapper label {
-    /*display: block;
-    padding-left: 50px;*/
     cursor: pointer;
 }
 .checkout-wrapper .checkout-btn {

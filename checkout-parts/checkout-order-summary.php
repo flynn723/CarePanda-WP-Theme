@@ -13,21 +13,21 @@
 				<div class="product-img-col hidden-xs hidden-sm col-md-12">
 				  	<img src="https://justinestrada.com/carepanda/wp-content/themes/carepanda/img/carepanda-mobile-device-screen-w-logo-buttons.png" class="product-img"/>
 				</div>
-		  		<div class="col-xs-12"><h4>Compliance Package Plan</h4></div>
+		  		<div class="col-xs-12"><h4><?php _e('Compliance Package Plan'); ?></h4></div>
 		  		<div class="order-sum-user-quantity-wrapper">
-			  		<div class="col-xs-7">User Quantity</div><div class="col-xs-5 text-right"><p class="order-sum-user-quantity">User Quantity Not Set</p></div>
+			  		<div class="col-xs-7"><?php _e('User Quantity'); ?></div><div class="col-xs-5 text-right"><p class="order-sum-user-quantity">User Quantity Not Set</p></div>
 			  	</div>
 		  		<div class="order-sum-user-fee-wrapper">
-			  		<div class="user-fee-title col-xs-7">User Fee</div><div class="col-xs-5 text-right"><p class="order-sum-user-fee"></p></div>
+			  		<div class="user-fee-title col-xs-7"><?php _e('User Fee'); ?></div><div class="col-xs-5 text-right"><p class="order-sum-user-fee"></p></div>
 			  	</div>
 		  		<div class="order-sum-account-fee-wrapper">
-			  		<div class="account-fee-title col-xs-7">Account Fee</div><div class="col-xs-5 text-right"><p class="order-sum-account-fee">Package Plan Not Selected</p></div>
+			  		<div class="account-fee-title col-xs-7"><?php _e('Account Fee'); ?></div><div class="col-xs-5 text-right"><p class="order-sum-account-fee">Package Plan Not Selected</p></div>
 			  	</div>
 		  		<div class="order-sum-total-wrapper">
-			  		<div class="order-sum-total-col col-xs-7">Total</div><div class="col-xs-5 text-right"><p class="order-sum-total">Not Set</p></div>
+			  		<div class="order-sum-total-col col-xs-7"><?php _e('Total'); ?></div><div class="col-xs-5 text-right"><p class="order-sum-total">Not Set</p></div>
 			  	</div>
 		  		<div class="order-sum-amount-saved-wrapper">
-			  		<div class="amount-saved-col col-xs-7">Amount Saved</div><div class="amount-saved-col col-xs-5 text-right"><p class="order-sum-amount-saved">$0.00</p></div>
+			  		<div class="amount-saved-col col-xs-7"><?php _e('Amount Saved'); ?></div><div class="amount-saved-col col-xs-5 text-right"><p class="order-sum-amount-saved">$0.00</p></div>
 			  	</div>
 		  	</div>
 		  	

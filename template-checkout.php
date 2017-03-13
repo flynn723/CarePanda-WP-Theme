@@ -25,7 +25,7 @@ get_template_part('checkout-parts/checkout-style'); ?>
         <div class="checkout-logo-col col-xs-12">
           <a href="<?php echo get_site_url(); ?>" title="<?php bloginfo('name'); ?>"><img src="<?php echo get_site_url(); ?>/wp-content/themes/carepanda/img/carepanda-logo.png" class="checkout-logo"></a>
         </div>
-        <?php if(!isset($_GET['payment']) && $_GET['payment'] != 'paid') : ?>
+        <?php if( ! ( isset($_GET['payment']) ) ) : ?>
           <div class="checkout-fields-col col-xs-12 col-md-7">
 
             <div class="panel-group" id="checkout-accordion" role="tablist" aria-multiselectable="true">
@@ -70,34 +70,39 @@ get_template_part('checkout-parts/checkout-style'); ?>
             
           </div><!-- end of <div class="checkout-fields-col -->
           <div class="order-summary-col col-xs-12 col-md-4">
+
             <?php get_template_part('checkout-parts/checkout', 'order-summary'); ?>
+
           </div>
-        <?php else: ?>
-          <div class="thank-you-col col-xs-12 text-center">
-            <h2>Thank You For The Payment</h2>
-          </div>
-        <?php endif; /* end of if(!isset($_GET['payment']) && $_GET['payment'] != 'paid') */ ?>
+
+        <?php elseif(isset($_GET['payment']) && $_GET['payment'] == 'paid') :  ?>
+
+          <?php get_template_part('checkout-parts/checkout', 'stripe-thank-you'); ?>
+
+        <?php elseif(isset($_GET['payment']) && $_GET['payment'] == 'failed') :  ?>
+
+          <?php get_template_part('checkout-parts/checkout', 'stripe-failed'); ?>
+
+        <?php endif; /* end of  if( ! ( isset($_GET['payment']) ) ) : */ ?>
+
       </div><!-- end of <div class="container"> -->
-    </section>
+    </section><!-- end of <section id="contact" class="section-certification section-small-body clearfix"> -->
 
-  </div><!-- end of <div class="container"> -->
-</section><!-- end of <section id="contact" class="section-certification section-small-body clearfix"> -->
-
-<div class="modal terms-conditions-modal fade" id="terms-conditions-modal" tabindex="-1" role="dialog" aria-labelledby="terms-conditions-modal">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header text-center">
-                Terms and Conditions
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <i class="fa fa-close"></i>
-                </button>
-            </div>
-            <div class="modal-body clearfix">
-              <p>Terms and Conditions Goes Here</p>
-            </div><!-- end of <div class="modal-body"> -->
-        </div><!-- end of <div class="modal-content"> -->
-    </div>
-</div><!--/#contact-modal-->
+    <div class="modal terms-conditions-modal fade" id="terms-conditions-modal" tabindex="-1" role="dialog" aria-labelledby="terms-conditions-modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    Terms and Conditions
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <i class="fa fa-close"></i>
+                    </button>
+                </div>
+                <div class="modal-body clearfix">
+                  <p>Terms and Conditions Goes Here</p>
+                </div><!-- end of <div class="modal-body"> -->
+            </div><!-- end of <div class="modal-content"> -->
+        </div>
+    </div><!--/#contact-modal-->
 
   </div><!-- end of .wrapper -->
 </div><!-- end of .outer-row -->
